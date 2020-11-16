@@ -45,15 +45,16 @@ else {
 
 /*let lang, salary;
 
+let result;
 if (lang === 'javascript') {
 	if (salary === 100000) {
-		let result = 'Приглашаем Вас на собеседование';
+		result = 'Приглашаем Вас на собеседование';
 	}
 	else if (salary > 100000) {
-		let result = 'Мы перезвоним Вам в ближайшее время.';
+		result = 'Мы перезвоним Вам в ближайшее время.';
 	}
 	else {
-		let result = 'У вас заниженная самооценка';
+		result = 'У вас заниженная самооценка';
 	}
 }
 */
