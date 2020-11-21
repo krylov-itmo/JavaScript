@@ -279,12 +279,10 @@ console.log(range(1,200,5));
 
 
 console.log("Задание №3");
-let val = 455;
-function sum(a) {
-	a = `${a}`;
-	if (a.length === 1) return +a;
-	return +a[0] + sum(a.slice(1));	
+function sumNum(a) {
+	if (a < 10) return a;
+	return a % 10 + sumNum(Math.floor(a / 10));	
 }
 
 
-console.log(sum(val));
+console.log(sumNum(133));
