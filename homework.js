@@ -1,6 +1,5 @@
 
 
-
 /*Занятие №1*/
 
 /*let h = 10; let w = 20; let l = 10;
@@ -281,8 +280,61 @@ console.log(range(1,200,5));
 console.log("Задание №3");
 function sumNum(a) {
 	if (a < 10) return a;
-	return a % 10 + sumNum(Math.floor(a / 10));	
+	return a % 10 + sumNum(Math.floor(a / 10));
+}
+console.log(sumNum(134));
+
+
+
+console.log("Задание №4");
+let numsArr = [
+	[3, 5, -1, 6, 0],
+	[56, -9, 111, 6],
+	[11, 86, -12],
+];
+
+let result = [];
+for (let m = 0; m < numsArr.length; m++) {
+	result[m] = numsArr[m].map(a => a + 10);
+}
+console.log(`Увеличенные на 10 элементы массива ${result}`);
+
+let result2 = [];
+for (let n=0; n < numsArr.length; n++) {
+	result2[n] = numsArr[n].filter(b => b > 0);
+
+} 
+ console.log(`Положительные элементы массива ${result2}`);
+
+
+ console.log("Задание №5");
+
+ function spamCheck(text,...keywords) {
+ 	let cnt = 0;
+ 	for (let k of keywords) {
+ 		if (text.split(" ").includes(k)) {
+ 			cnt+=1;
+ 		}
+
+ 	}
+ 	let ratio = (text.split(" ").length / 5) * cnt;
+ 	return `Из ${text.split(" ").length} слов текста, спам найден в ${cnt}  = ${ratio}/5 spam ratio`;
+ } 
+
+console.log(spamCheck("ставки на спорт покер казино","слоты", "казино", "рулетка", "покер", "ставки", "таблетки", "знакомства", "выигрыш"));
+
+console.log("Задание №6");
+let more18 = x => x > 18;
+let less30 = x => x < 30;
+let arr = [more18,less30];
+
+
+function argfunc(array_func) {
+	let age = Math.floor(Math.random() * 100);
+	console.log(`age = ${age}`);
+	return array_func[0](age) && array_func[1](age);
+
 }
 
-
-console.log(sumNum(133));
+result = argfunc(arr);
+console.log(result);
