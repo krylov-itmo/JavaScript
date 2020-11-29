@@ -1,4 +1,4 @@
-
+'use strict';
 
 /*Занятие №1*/
 
@@ -241,7 +241,7 @@ console.log(`В строке: \"${text}\" самое длиннное слово
 
 
 /*занятие 5-6*/
-console.log("Задание №1");
+/*console.log("Задание №1");
 function sklon(a) {
 	if (a === 11 || a === 12) return a + " товаров";
 	if (a % 10 === 0) return a+ " товаров";
@@ -250,13 +250,7 @@ function sklon(a) {
 	return a + " товаров";
 
 }
-/*let inpt =  prompt("Введите число");
-if ((inpt * 1) === (inpt / 1)) {
-	console.log(sklon(+inpt));
-}
-else {
-	console.log(`${inpt} это не число`);
-}*/
+
 for (let i = 1; i <=100; i++) {
 	console.log(sklon(i));
 }
@@ -337,4 +331,98 @@ function argfunc(array_func) {
 }
 
 result = argfunc(arr);
-console.log(result);
+console.log(result);*/
+
+
+console.log("Задание №7.1");
+
+let goods = {
+            piano: {
+                title: "Пианино",
+                price: 3000,
+                count: 25
+            },
+            guitar: {
+                title: "Гитара",
+                price: 1200,
+                count: 40
+            },
+            drum: {
+                title: "Барабаны",
+                price: 2700,
+                count: 12
+            },
+            flute: {
+                title: "Флейта",
+                price: 900,
+                count: 50
+            },
+            harp: {
+                title: "Арфа",
+                price: 3400,
+                count: 5
+            }
+        };
+
+function getGoodsPrice(from,to,obj) {
+
+	if (typeof(from) != "number" || typeof(to) != "number" ) return `${from} или ${to} не является числом`
+	let out = {}	
+	for (let i in obj) {
+			if (obj[i].price >= from && obj[i].price <= to) out[i] = obj[i];
+		
+	}
+	return out;
+}      
+
+console.log(getGoodsPrice(900,3000,goods));
+
+console.log("Задание №7.2");
+
+function getByTitle(title,countToCart,obj) {
+	if (typeof(countToCart) != "number") return;
+	for (let i in obj) {
+		if (obj[i].title === title) {
+			if (obj[i].count >= countToCart) {
+				obj[i].count -= countToCart;
+				console.log(`Товар ${obj[i].title} имеется на складе в количестве ${countToCart} шт , остаток товара после покупки ${obj[i].count}`);
+			}
+			else {
+				console.log(`Товара ${obj[i].title} недостаточно на складе`);
+			}
+			return;
+		}
+	}		
+	console.log(`Товар ${title} ненайден на складе`);
+		
+}
+
+getByTitle("Гитара",20,goods);
+
+console.log("Задание №7.3");
+let books = [
+            { author: 'Пушкин', title: 'Пир во время чумы', pageCount: 5},
+            { author: 'Гоголь', title: 'Мертвые души', pageCount: 470},
+            { author: 'Лермонтов', title: 'Тамань', pageCount: 190},
+            { author: 'Гончаров', title: 'Обломов', pageCount: 610},
+            { author: 'Лермонтов', title: 'Герой Нашего Времени', pageCount: 191},
+            { author: 'Пушкин', title: 'Руслан и Людмила', pageCount: 50},
+            { author: 'Лермонтов', title: 'Бородино', pageCount: 2},
+        ];
+
+function getBooks(author,arr) {
+	return arr.filter(elem => elem.author === author);
+}
+
+console.log(getBooks("Пушкин",books));
+
+console.log("Задание №7.4");
+
+function sortByParam(sortBy,arrObj) {
+	if (sortBy === "pageCount")	return arrObj.sort((a, b) => a[sortBy] - b[sortBy]);  //пришлось много гуглить
+	return arrObj.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+}
+
+console.log(sortByParam("author",books));
+//console.log(sortByParam("title",books)); 
+//console.log(sortByParam("pageCount",books));           
